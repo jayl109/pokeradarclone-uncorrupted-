@@ -1,12 +1,13 @@
 //
 //  AppDelegate.swift
-//  pokeradarclone(uncorrupted)
+//  map
 //
-//  Created by Jason Lum on 7/25/16.
+//  Created by Jason Lum on 7/18/16.
 //  Copyright © 2016 Jason Lum. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        FIRApp.configure()
+      
         return true
     }
 

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pokeradarclone_uncorrupted_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,122 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-PD-BZ5">
+                                <rect key="frame" x="0.0" y="0.0" width="599" height="600"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrk-nZ-Jbm">
+                                <rect key="frame" x="240" y="382" width="120" height="30"/>
+                                <state key="normal" title="Go to my location"/>
+                                <connections>
+                                    <action selector="resetlocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3N-6Z-XgJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drK-VU-MNK">
+                                <rect key="frame" x="201" y="445" width="196" height="30"/>
+                                <state key="normal" title="Add pokemon to my location"/>
+                                <connections>
+                                    <segue destination="KSf-7O-dtJ" kind="show" id="eLP-Lo-Q0t"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zrk-nZ-Jbm" firstAttribute="trailing" secondItem="j9f-PD-BZ5" secondAttribute="trailing" id="8qg-go-AXl"/>
+                            <constraint firstItem="drK-VU-MNK" firstAttribute="top" secondItem="zrk-nZ-Jbm" secondAttribute="bottom" constant="33" id="G7D-dd-SjD"/>
+                            <constraint firstItem="j9f-PD-BZ5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JUG-R9-4ll"/>
+                            <constraint firstItem="j9f-PD-BZ5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="K4R-Fs-khk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j9f-PD-BZ5" secondAttribute="trailing" id="M9u-Bq-FND"/>
+                            <constraint firstItem="zrk-nZ-Jbm" firstAttribute="centerX" secondItem="j9f-PD-BZ5" secondAttribute="centerX" id="VrB-i5-Ivk"/>
+                            <constraint firstItem="drK-VU-MNK" firstAttribute="centerX" secondItem="j9f-PD-BZ5" secondAttribute="centerX" id="dWQ-38-8vL"/>
+                            <constraint firstItem="j9f-PD-BZ5" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="mCU-Uo-4lm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="drK-VU-MNK" secondAttribute="bottom" constant="75" id="xWY-1J-aQ8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapkit" destination="j9f-PD-BZ5" id="Pzh-aT-8gx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="229"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="egg-4m-Uzc">
+            <objects>
+                <viewController id="KSf-7O-dtJ" customClass="SecondViewController" customModule="pokeradarclone_uncorrupted_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WFv-rc-Pcp"/>
+                        <viewControllerLayoutGuide type="bottom" id="JbA-fd-wLr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fJo-sg-6tl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5F-b3-J5t">
+                                <rect key="frame" x="274" y="172" width="53" height="30"/>
+                                <state key="normal" title="Submit!"/>
+                                <connections>
+                                    <action selector="submitPokemon:" destination="KSf-7O-dtJ" eventType="touchUpInside" id="kup-Ek-3RR"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="OCA-Oj-Qko"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uN-Cb-7Kk">
+                                <rect key="frame" x="20" y="28" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="8XJ-N0-hN8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What is the name of the pokemon?" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3GU-mO-Efm">
+                                <rect key="frame" x="177" y="70" width="246" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odx-RU-zHK">
+                                <rect key="frame" x="177" y="125" width="246" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Cd7-S6-NMb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f5F-b3-J5t" firstAttribute="centerX" secondItem="fJo-sg-6tl" secondAttribute="centerX" id="2or-JD-7Xf"/>
+                            <constraint firstItem="odx-RU-zHK" firstAttribute="top" secondItem="3GU-mO-Efm" secondAttribute="bottom" constant="18" id="CEz-IH-mhV"/>
+                            <constraint firstItem="f5F-b3-J5t" firstAttribute="top" secondItem="odx-RU-zHK" secondAttribute="bottom" constant="10" id="Fl0-iS-50G"/>
+                            <constraint firstItem="f5F-b3-J5t" firstAttribute="top" secondItem="odx-RU-zHK" secondAttribute="bottom" constant="17" id="I6P-Mf-2DE"/>
+                            <constraint firstItem="1uN-Cb-7Kk" firstAttribute="leading" secondItem="fJo-sg-6tl" secondAttribute="leadingMargin" id="JdF-BW-nNj"/>
+                            <constraint firstItem="3GU-mO-Efm" firstAttribute="top" secondItem="WFv-rc-Pcp" secondAttribute="bottom" constant="50" id="Qg0-Mh-zEV"/>
+                            <constraint firstItem="1uN-Cb-7Kk" firstAttribute="leading" secondItem="fJo-sg-6tl" secondAttribute="leadingMargin" constant="6" id="gVz-uG-yu2"/>
+                            <constraint firstItem="1uN-Cb-7Kk" firstAttribute="top" secondItem="WFv-rc-Pcp" secondAttribute="bottom" constant="10" id="kse-4q-AuT"/>
+                            <constraint firstItem="1uN-Cb-7Kk" firstAttribute="top" secondItem="WFv-rc-Pcp" secondAttribute="bottom" constant="-8" id="kz5-QX-ROb"/>
+                            <constraint firstItem="1uN-Cb-7Kk" firstAttribute="top" secondItem="fJo-sg-6tl" secondAttribute="topMargin" id="oyW-tB-fvc"/>
+                            <constraint firstItem="odx-RU-zHK" firstAttribute="centerX" secondItem="fJo-sg-6tl" secondAttribute="centerX" id="tJG-9T-9Yx"/>
+                            <constraint firstItem="3GU-mO-Efm" firstAttribute="centerX" secondItem="fJo-sg-6tl" secondAttribute="centerX" id="wbw-SA-SYY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gVz-uG-yu2"/>
+                                <exclude reference="kz5-QX-ROb"/>
+                                <exclude reference="oyW-tB-fvc"/>
+                                <exclude reference="I6P-Mf-2DE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="R0o-u4-j3P"/>
+                    <connections>
+                        <outlet property="pokemonname" destination="odx-RU-zHK" id="fhq-iw-A60"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ez-Gp-TJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888" y="229"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OCA-Oj-Qko"/>
+    </inferredMetricsTieBreakers>
 </document>
